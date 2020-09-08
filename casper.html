@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics  -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-89148892-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-89148892-2');
+
+    </script>
+    <script type="text/javascript" src="https://rchain.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/b4ichp/b/2/a44af77267a987a660377e5c46e0fb64/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=16b975c9"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <title>Casper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <meta name="google-site-verification" content="NvXu2Qnyi90bS-ubPtaorKKja1_p8SHfQ0zPoqG0sIg" />
+    <link rel='stylesheet' href='css/layout.css' />
+    <link rel='stylesheet' href='css/casper.css' />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/favicon-red.png" />
+    <meta property="og:title" content="Casper Documentation" />
+    <meta property="og:type" content="website" />
+    <meta name="description" content="Casper is a particular family of proof-of-stake algorithms with strong mathematical foundations that protect networks from scams." />
+    <meta property="og:description" content="Casper is a particular family of proof-of-stake algorithms with strong mathematical foundations that protect networks from scams." />
+    <meta property="og:url" content="https://developer.rchain.coop/casper" />
+    <meta property="og:image" content="https://developer.rchain.coop/assets/twitter-img.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Casper Documentation" />
+    <meta name="twitter:image" content="https://developer.rchain.coop/assets/twitter-img.png" />
+    <meta name="twitter:url" content="https://developer.rchain.coop/casper" />
+    <meta name="twitter:description" content="Casper is a particular family of proof-of-stake algorithms with strong mathematical foundations that protect networks from scams." />
+
+</head>
+
+<body>
+    <div id="navOpen" onclick="navOpen()">
+        <div class="burger"></div>
+        <div class="burger"></div>
+        <div class="burger"></div>
+    </div>
+    <div class="nav" id="nav">
+        <div id="navClose" onclick="navClose()">X</div>
+        <div class="item" onclick="">
+            <a href="index.html">Home</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="documentation.html">Documentation</a>
+        </div>
+        <div class="item" onclick="">
+          <a href="https://faq.rchain.coop" target="_blank">FAQ</a>
+        </div>
+        <!-- <div class="item" onclick=""> -->
+        <!-- <a href="/conference">Conference</a> -->
+        <!-- </div> -->
+        <div class="item" onclick="">
+            <a href="token-swap.html">REV Issuance</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="https://rchain.coop" target="_blank">Rchain.Coop</a>
+        </div>
+    </div>
+
+    <div class="masthead">
+    <div id="logoWrapper">
+        <img src="assets/rchain-redwhite-logo.png" alt="rchain">
+    </div>
+</div>
+
+<div class="bodyText">
+    <div class="header">Casper Intro and Overview</div>
+    <div class="body">In the context of blockchain technologies, the consensus algorithm is what allows everyone on the network to confidently know the current state of things and that when they engage in transactions which change the state others will recognize the change too. For the specific case of cryptocurrencies, this means that if I accept a payment from another user that I can be confident they actually have the amount they are offering me, and that others will recognize that I have that amount post-transaction and will accept it from me in future transactions.</div>
+    <div class="header">Proof-of-work (PoW) </div>
+    <div class="body">Proof-of-work (PoW) consensus algorithms (one famously used by BitCoin) accomplish this by making it computationally expensive to process transactions, thus making it unprofitable to attempt to scam the network (e.g. through a double spend). This has the serious drawback of consuming a great deal of energy even though the goal of providing security through making dishonest behaviour unprofitable could be accomplished in other ways. This is the main idea behind proof-of-stake (PoS); provide the same guarantees as PoW through other economic means than the expense of computational hardware. One central idea is that dishonest behaviour can be identified and punished such that it is less profitable than behaving honestly.</div>
+
+    <div class="header">Correct-by-construction (CBC)</div>
+    <div class="body">Casper is a particular family of proof-of-stake algorithms with strong mathematical foundations first described by an Ethereum research group. Such foundations mean that properties of CBC Casper algorithms are provable and therefore provide the highest degree of certainty that they provide exactly what is needed for a secure and efficient network.</div>
+</div>
+
+
+    <div id="footer">
+        <div class="footer-social">
+            <ul>
+                <li><a href="https://www.facebook.com/rchaincooperative/" target="_blank"><img src="assets/fb-circle.png"><span class="socialText">Facebook</span></a></li>
+                <li><a href="https://twitter.com/rchain_coop" target="_blank"><img src="assets/twitter-circle2.png"><span class="socialText">Twitter</span></a></li>
+                <li><a href="https://github.com/rchain" target="_blank"><img src="assets/github-circle.png"><span class="socialText">Github</span></a></li>
+                <li><a href="https://medium.com/rchain-cooperative" target="_blank"><img src="assets/medium-circle.png"><span class="socialText">Medium</span></a></li>
+                <li><a href="https://www.reddit.com/r/RChain/" target="_blank"><img src="assets/reddit-circle2.png"><span class="socialText">Reddit</span></a></li>
+                <li><a href="https://t.me/rchaincoop" target="_blank"><img src="assets/telegram2.png"><span class="socialText">Telegram</span></a></li>
+                <li><a href="https://discord.gg/NWkQnfH" target="_blank"><img src="assets/discord-circle.png"><span class="socialText">Discord</span></a></li>
+                <li><a href="https://www.youtube.com/channel/UCSS3jCffMiz574_q64Ukj_w" target="_blank"><img src="assets/youtube-circle.png"><span class="socialText">Youtube</span></a></li>
+                <li><a href="https://www.linkedin.com/company/rchain-cooperative/" target="_blank"><img src="assets/linkedin-circle.png"><span class="socialText">Linkedin</span></a></li>
+            </ul>
+        </div>
+        <script async data-uid="52c6186414" src="https://f.convertkit.com/52c6186414/c0b6054265.js"></script>
+        <div class="copy">© 2019 RChain Cooperative</div>
+    </div>
+
+    <script src="js/developer.rchain.js"></script>
+    <script src="casper.html"></script>
+
+</body>
+
+</html>
