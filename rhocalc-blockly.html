@@ -52,6 +52,13 @@
 
     <div class="bodyText">
         <h1>Blockly Rho Calc</h1>
+
+        <p>
+            The RChain execution model is derived from the syntax and semantics of rho-calculus.
+            “Rho” stands for reflective, higher-order. For a crash course, see the
+            <cite><a href="https://github.com/rchain-community/rv2020/issues/69">Voting in Rholang</a></cite>
+            materials (Fall 2020).
+        </p>
         <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
         <xml id="toolbox" style="display: none">
             <block type="proc_nil"></block>
@@ -70,6 +77,28 @@
                 { toolbox: document.getElementById('toolbox') });
         </script>
         <p><em>made with <a href="https://developers.google.com/blockly">Blockly</a></em></p>
+        <h2>References</h2>
+        <ul>
+            <li>
+                Eykholt, Meredith and Denman, 2017
+                <a href="https://architecture-docs.readthedocs.io/">RChain Platform Architecture</a>. <cite>RChain
+                    Cooperative</cite>
+                <br />esp.
+                <a
+                    href="https://architecture-docs.readthedocs.io/contracts/contract-design.html#the-formalism-rho-calculus">The
+                    Formalism: Rho-Calculus</a>
+                section.
+            </li>
+            <li>
+                Meredith, L.G. and Radestock, M., 2005. <a
+                    href="https://www.sciencedirect.com/science/article/pii/S1571066105051893">A reflective higher-order
+                    calculus</a>. <cite>Electronic Notes in Theoretical Computer Science</cite>, 141(5), pp.49-67.
+            </li>
+            <li>Meredith L., Radestock M: <a href="https://link.springer.com/chapter/10.1007/11580850_19">Namespace
+                    Logic - A Logic
+                    for a Reflective Higher-Order Calculus</a>. <cite>Lecture Notes in Computer Science</cite> vol 3705.
+            </li>
+        </ul>
     </div>
 
     <div id="footer">
