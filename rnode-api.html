@@ -10,6 +10,10 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="shortcut icon" href="assets/favicon-red.png" />
+    <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"
+        integrity="sha384-vYZydNRigu+FgLH0rwR9kefP68iWqeoTbniVrK9Qq9tkHL2uSH+HtHfyaOzi/rn6"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.35.0/swagger-ui.css">
 </head>
 
 <body>
@@ -48,9 +52,22 @@
     </div>
 
     <div class="bodyText">
-        <div class="header">What is LADL?</div>
-        <div class="body">LADL is a process to create spatial-behavioral type systems. Such a system not only describes
-            the structure of datatypes, but also the behavior of the processes.</div>
+        <div id="rnode-api-form">
+        </div>
+        <script>
+            const ui = SwaggerUIBundle({
+                url: "https://raw.githubusercontent.com/rchain/rchain/dev/docs/rnode-api/rnode-openapi.json",
+                dom_id: '#rnode-api-form',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIBundle.SwaggerUIStandalonePreset
+                ],
+                /*@@???
+                layout: "StandaloneLayout"
+                */
+            })
+        </script>
     </div>
 
     <div id="footer">
