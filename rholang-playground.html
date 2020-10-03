@@ -56,6 +56,14 @@
         <h1>Rholang Playground</h1>
 
         <form>
+            <label>Example:
+                <select name="example">
+                    <option>Hello World</option>
+                    <option
+                        value="https://raw.githubusercontent.com/rchain/rchain/dev/rholang/examples/tut-bytearray-methods.rho">
+                        tut-bytearray-methods.rho</option>
+                </select>
+            </label>
             <!-- prettier-ignore -->
             <textarea id='rholang-term' cols="80" rows="16">new world in {
   world!("Hello!")
@@ -124,7 +132,67 @@
                         $('#problem').textContent = err.message;
                         showBlock($('#problemSection'))
                     }
-                })
+                });
+
+                const helloExample = `new world in {
+  world!("Hello!")
+}`;
+                const coreBase = new URL('https://raw.githubusercontent.com/rchain/rchain/dev/rholang/examples/');
+                const coreExamples = [
+                    'block-data.rho',
+                    'bond/bond.rho',
+                    'dupe.rho',
+                    'hello_world_again.rho',
+                    'longfast.rho',
+                    'longslow.rho',
+                    'performance/loop_recursive.rho',
+                    'shortfast.rho',
+                    'shortslow.rho',
+                    'stderrAck.rho',
+                    'stderr.rho',
+                    'stdoutAck.rho',
+                    'stdout.rho',
+                    'tut-bytearray-methods.rho',
+                    'tut-hash-functions.rho',
+                    'tut-hello-again.rho',
+                    'tut-hello.rho',
+                    'tut-lists-methods.rho',
+                    'tut-maps-methods.rho',
+                    'tut-parens.rho',
+                    'tut-philosophers.rho',
+                    'tut-prime.rho',
+                    'tut-rcon-or.rho',
+                    'tut-rcon.rho',
+                    'tut-registry.rho',
+                    'tut-sets-methods.rho',
+                    'tut-strings-methods.rho',
+                    'tut-tuples-methods.rho',
+                    'vault_demo/1.know_ones_revaddress.rho',
+                    'vault_demo/2.check_balance.rho',
+                    'vault_demo/3.transfer_funds.rho',
+                ];
+                coreExamples.forEach(ref => {
+                    const elt = document.createElement('option');
+                    elt.textContent = ref;
+                    elt.value = new URL(ref, coreBase).toString();
+                    $('select[name="example"]').appendChild(elt);
+                });
+                $('select[name="example"]').addEventListener('change', (event) => {
+                    const value = event.target.value;
+                    if (value === 'Hello World') {
+                        $('#rholang-term').value = helloExample;
+                        return;
+                    }
+                    const codeP = fetch(value).then(response => {
+                        if (!response.ok) {
+                            alert(response.statusText);
+                            return;
+                        }
+                        response.text().then(content => {
+                            $('#rholang-term').value = content;
+                        })
+                    })
+                });
             })
         </script>
     </div>
