@@ -10,6 +10,11 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link rel="shortcut icon" href="assets/favicon-red.png" />
+    <style>
+        pre {
+            line-height: 1
+        }
+    </style>
 </head>
 
 <body>
@@ -50,7 +55,78 @@
     <div class="bodyText">
         <h1>Rholang Playground</h1>
 
+        <form>
+            <!-- prettier-ignore -->
+            <textarea id='rholang-term' cols="80" rows="16">new world in {
+  world!("Hello!")
+}
+</textarea>
+            <br />
+            <button id="run">Run</button>
+        </form>
+        <section id="resultSection" style="display: none">
+            <h2>Result</h2>
+            <pre id="result"></pre>
+            <h2>Block Info</h2>
+            <small>
+                <pre id="blockInfo"></pre>
+            </small>
+        </section>
+        <section id="problemSection" style="display: none">
+            <h3>Problem</h3>
+            <pre id="problem"></pre>
+        </section>
 
+        <script type="module">
+            import { RNode } from './js/rnode.js';
+            import { RhoExpr } from './js/rho-expr.js';
+
+            const $ = selector => document.querySelector(selector);
+            const pprint = data => JSON.stringify(data, null, 2);
+            const hideBlock = elt => { elt.style.display = 'none'; };
+            const showBlock = elt => { elt.style.display = 'block'; };
+
+            async function busy(button, p) {
+                $('body').style.cursor = 'wait';
+                button.style.cursor = 'wait';
+                button.disabled = true;
+                $()
+                try {
+                    const result = await p;
+                    return result;
+                } finally {
+                    button.disabled = false;
+                    $('body').style.cursor = 'inherit';
+                    button.style.cursor = 'inherit';
+                }
+            }
+
+            window.addEventListener('DOMContentLoaded', () => {
+                const node1 = new RNode(fetch).observer('https://observer.testnet.rchain.coop');
+
+                $('#run').addEventListener('click', async (event) => {
+                    event.preventDefault();
+
+                    const term = $('#rholang-term').value;
+                    hideBlock($('#resultSection'))
+                    $('#result').textContent = '';
+                    hideBlock($('#problemSection'))
+                    $('#problem').textContent = '';
+                    try {
+                        const { expr, block } = await busy($('#run'), node1.exploratoryDeploy(term));
+                        if (expr.length > 0) {
+                            const data = expr.map(RhoExpr.parse);
+                            $('#result').textContent = pprint(data);
+                        }
+                        $('#blockInfo').textContent = pprint(block);
+                        showBlock($('#resultSection'))
+                    } catch (err) {
+                        $('#problem').textContent = err.message;
+                        showBlock($('#problemSection'))
+                    }
+                })
+            })
+        </script>
     </div>
 
     <div id="footer">
