@@ -54,16 +54,19 @@
         <h1>Blockly Rho Calc</h1>
         <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
         <xml id="toolbox" style="display: none">
-            <block type="controls_if"></block>
-            <block type="controls_repeat_ext"></block>
-            <block type="logic_compare"></block>
-            <block type="math_number"></block>
-            <block type="math_arithmetic"></block>
-            <block type="text"></block>
-            <block type="text_print"></block>
+            <block type="proc_nil"></block>
+            <block type="proc_for"></block>
+            <block type="proc_send"></block>
+            <block type="proc_deref"></block>
+            <block type="proc_par"></block>
+            <block type="name_at"></block>
         </xml>
-        <script>
-            var workspace = Blockly.inject('blocklyDiv',
+        <script type="module">
+            import { rhoCalcBlocks } from './js/rhocalc-blocks.js';
+
+            Blockly.defineBlocksWithJsonArray(rhoCalcBlocks);
+
+            const workspace = Blockly.inject('blocklyDiv',
                 { toolbox: document.getElementById('toolbox') });
         </script>
         <p><em>made with <a href="https://developers.google.com/blockly">Blockly</a></em></p>
