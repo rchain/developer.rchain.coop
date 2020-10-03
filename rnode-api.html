@@ -15,7 +15,8 @@
         gtag('config', 'UA-89148892-2');
 
     </script>
-    <script type="text/javascript" src="https://rchain.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/b4ichp/b/2/a44af77267a987a660377e5c46e0fb64/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=16b975c9"></script>
+    <script type="text/javascript"
+        src="https://rchain.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/b4ichp/b/2/a44af77267a987a660377e5c46e0fb64/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=16b975c9"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
     <title>LADL</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
@@ -27,15 +28,18 @@
     <link rel="shortcut icon" href="assets/favicon-red.png" />
     <meta property="og:title" content="LADL Documentation" />
     <meta property="og:type" content="website" />
-    <meta name="description" content="LADL is a process to create spatial-behaviorial type systems. LADL ensures that contracts are not susceptible to race conditioned attacks." />
-    <meta property="og:description" content="LADL is a process to create spatial-behaviorial type systems. LADL ensures that contracts are not susceptible to race conditioned attacks." />
+    <meta name="description"
+        content="LADL is a process to create spatial-behaviorial type systems. LADL ensures that contracts are not susceptible to race conditioned attacks." />
+    <meta property="og:description"
+        content="LADL is a process to create spatial-behaviorial type systems. LADL ensures that contracts are not susceptible to race conditioned attacks." />
     <meta property="og:url" content="https://developer.rchain.coop/ladl" />
     <meta property="og:image" content="https://developer.rchain.coop/assets/twitter-img.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="LADL Documentation" />
     <meta name="twitter:image" content="https://developer.rchain.coop/assets/twitter-img.png" />
     <meta name="twitter:url" content="https://developer.rchain.coop/ladl" />
-    <meta name="twitter:description" content="LADL is a process to create spatial-behaviorial type systems. LADL ensures that contracts are not susceptible to race conditioned attacks." />
+    <meta name="twitter:description"
+        content="LADL is a process to create spatial-behaviorial type systems. LADL ensures that contracts are not susceptible to race conditioned attacks." />
 
 </head>
 
@@ -54,7 +58,7 @@
             <a href="documentation.html">Documentation</a>
         </div>
         <div class="item" onclick="">
-          <a href="https://faq.rchain.coop" target="_blank">FAQ</a>
+            <a href="https://faq.rchain.coop" target="_blank">FAQ</a>
         </div>
         <!-- <div class="item" onclick=""> -->
         <!-- <a href="/conference">Conference</a> -->
@@ -68,45 +72,42 @@
     </div>
 
     <div class="masthead">
-    <div id="logoWrapper">
-        <img src="assets/logo-cropped.png" alt="rchain">
-        <div class="textWrapper">
-            <h1>RCHAIN</h1>
-            <div>Scalable, Secure, Sustainable</div>
+        <div id="logoWrapper">
+            <img src="assets/logo-cropped.png" alt="rchain">
+            <div class="textWrapper">
+                <h1>RCHAIN</h1>
+                <div>Scalable, Secure, Sustainable</div>
+            </div>
         </div>
     </div>
-</div>
 
     <div class="bodyText">
         <div class="header">What is LADL?</div>
-        <div class="body">LADL is a process to create spatial-behavioral type systems. Such a system not only describes the structure of datatypes, but also the behavior of the processes.</div>
-        <div class="header">LADL and DAO</div>
-        <div class="body">In 2016, the DAO lost $50M worth of ETH due to someone exploiting a race condition in a wallet contract. In a type system produced by LADL, one can declare that a contract should not contain a race. The compiler can check the code and guarantee that the contract is not susceptible to this kind of attack.</div>
-        <div class="header">Logic As a Distributive Law</div>
-        <div class="body">The implementation of a type in a programming language is describing a collection of values for that type. The class Natural, for instance, combines digits using juxtaposition. We can express types as "terms over collections". In many languages, we can, for instance, describe an employee class as follows:<br><br>
-            <pre>{ "first": String, "last": String, "age": Natural, "salary": Natural }.</pre><br> 
-            Compare this to an instance of the employee class: <br><br>
-            <pre>{ "first": "Joe", "last": "Schmoe", "age": 35, "salary": 100000 }.</pre><br> 
-            They're exactly the same, except that the class definition has types instead of values. Here's another example where the types are small enumerations:<br><br>
-            <pre>Suit = [ "Club", "Diamond", "Heart", "Spade" ]<br>Value = [ "A", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K" ]<br>Card = {"suit": Suit, "value": Value }</pre><br>
-            If we think of the type Card as a collection, how many elements does it have? Well, there are four suits and thirteen values and 4 * 13 = 52, so fifty-two cards in all.<br> Now suppose we have a data structure that defines a term in a programming language, a syntax tree. We can describe collections of programs in exactly the same way: we simply replace parts of the program with collections that say what's allowed in that position. And just as we multiplied together the ways to make a suit with the ways to make a value in order to get a card, we'll be taking the product of all the collections that appear in the syntax tree. A contract in Rholang can describe the kind of sourcecode it's willing to run!<br> We can think of adding things to a collection as being analogous to adding numbers, while we can think of the term constructors in the language as being analogous to multiplication. Then just as we have a distributive law that takes products of sums to sums of products,<br><br>
-            <pre>(a + b)(c + d) = ac + ad + bc + bd</pre><br>
-            we have a way of turning an expression that involves terms with collections in them (like the class definitions above) into a collection of terms.<br> This is the core of the LADL algorithm, but there's more. The description of a programming language includes not only its grammar, but also the reduction rules. By allowing class definitions to talk about reduction rules as well as the structure of code, we can describe behaviors. Many security properties can be expressed in terms of behaviors, like "This code does not have a race condition", or "This name is never sent on a channel outside this namespace."<br> LADL can generate a spatial-behavioral type system for any programming language, but the formulae it generates are practically unusable by anything but formal verification systems unless the language has been designed with LADL in mind, like Rholang has.
-        </div>
+        <div class="body">LADL is a process to create spatial-behavioral type systems. Such a system not only describes
+            the structure of datatypes, but also the behavior of the processes.</div>
     </div>
 
     <div id="footer">
         <div class="footer-social">
             <ul>
-                <li><a href="https://www.facebook.com/rchaincooperative/" target="_blank"><img src="assets/fb-circle.png"><span class="socialText">Facebook</span></a></li>
-                <li><a href="https://twitter.com/rchain_coop" target="_blank"><img src="assets/twitter-circle2.png"><span class="socialText">Twitter</span></a></li>
-                <li><a href="https://github.com/rchain" target="_blank"><img src="assets/github-circle.png"><span class="socialText">Github</span></a></li>
-                <li><a href="https://medium.com/rchain-cooperative" target="_blank"><img src="assets/medium-circle.png"><span class="socialText">Medium</span></a></li>
-                <li><a href="https://www.reddit.com/r/RChain/" target="_blank"><img src="assets/reddit-circle2.png"><span class="socialText">Reddit</span></a></li>
-                <li><a href="https://t.me/rchaincoop" target="_blank"><img src="assets/telegram2.png"><span class="socialText">Telegram</span></a></li>
-                <li><a href="https://discord.gg/NWkQnfH" target="_blank"><img src="assets/discord-circle.png"><span class="socialText">Discord</span></a></li>
-                <li><a href="https://www.youtube.com/channel/UCSS3jCffMiz574_q64Ukj_w" target="_blank"><img src="assets/youtube-circle.png"><span class="socialText">Youtube</span></a></li>
-                <li><a href="https://www.linkedin.com/company/rchain-cooperative/" target="_blank"><img src="assets/linkedin-circle.png"><span class="socialText">Linkedin</span></a></li>
+                <li><a href="https://www.facebook.com/rchaincooperative/" target="_blank"><img
+                            src="assets/fb-circle.png"><span class="socialText">Facebook</span></a></li>
+                <li><a href="https://twitter.com/rchain_coop" target="_blank"><img
+                            src="assets/twitter-circle2.png"><span class="socialText">Twitter</span></a></li>
+                <li><a href="https://github.com/rchain" target="_blank"><img src="assets/github-circle.png"><span
+                            class="socialText">Github</span></a></li>
+                <li><a href="https://medium.com/rchain-cooperative" target="_blank"><img
+                            src="assets/medium-circle.png"><span class="socialText">Medium</span></a></li>
+                <li><a href="https://www.reddit.com/r/RChain/" target="_blank"><img
+                            src="assets/reddit-circle2.png"><span class="socialText">Reddit</span></a></li>
+                <li><a href="https://t.me/rchaincoop" target="_blank"><img src="assets/telegram2.png"><span
+                            class="socialText">Telegram</span></a></li>
+                <li><a href="https://discord.gg/NWkQnfH" target="_blank"><img src="assets/discord-circle.png"><span
+                            class="socialText">Discord</span></a></li>
+                <li><a href="https://www.youtube.com/channel/UCSS3jCffMiz574_q64Ukj_w" target="_blank"><img
+                            src="assets/youtube-circle.png"><span class="socialText">Youtube</span></a></li>
+                <li><a href="https://www.linkedin.com/company/rchain-cooperative/" target="_blank"><img
+                            src="assets/linkedin-circle.png"><span class="socialText">Linkedin</span></a></li>
             </ul>
         </div>
         <script async data-uid="52c6186414" src="https://f.convertkit.com/52c6186414/c0b6054265.js"></script>
