@@ -1,0 +1,167 @@
+[{
+  "type": "proc_new",
+  "message0": "new %1 in %2",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "NAME",
+      "variable": "x"
+    },
+    {
+      "type": "input_value",
+      "name": "NAME",
+      "check": "process"
+    }
+  ],
+  "colour": 180,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "proc_par",
+  "message0": "%1 | %2 %3",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "P",
+      "check": "proc"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "Q",
+      "check": "proc"
+    }
+  ],
+  "output": "proc",
+  "colour": 255,
+  "tooltip": "P in parallel with Q",
+  "helpUrl": ""
+},
+{
+  "type": "proc_for",
+  "message0": "for ( %1 %2 %3 %4 ) { %5 %6 }",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "X",
+      "check": "name"
+    },
+    {
+      "type": "field_dropdown",
+      "name": "arrow",
+      "options": [
+        [
+          "<-",
+          "FOR"
+        ],
+        [
+          "<<-",
+          "PEEK"
+        ]
+      ]
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "Y",
+      "check": "name"
+    },
+    {
+      "type": "input_dummy"
+    },
+    {
+      "type": "input_value",
+      "name": "P",
+      "check": "proc"
+    }
+  ],
+  "inputsInline": true,
+  "colour": 230,
+  "tooltip": "receive",
+  "helpUrl": ""
+},
+{
+  "type": "name_quote",
+  "message0": "@ %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "P",
+      "check": "proc"
+    }
+  ],
+  "output": "name",
+  "colour": 230,
+  "tooltip": "form name by quoting process P",
+  "helpUrl": ""
+},
+{
+  "type": "proc_send",
+  "message0": "send to %1 input %2 %3",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "channel",
+      "check": "name",
+      "align": "RIGHT"
+    },
+    {
+      "type": "field_variable",
+      "name": "NAME",
+      "variable": "proc"
+    },
+    {
+      "type": "input_value",
+      "name": "process",
+      "check": "process"
+    }
+  ],
+  "inputsInline": true,
+  "output": null,
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+},
+{
+  "type": "proc_nil",
+  "message0": "Nil",
+  "output": "proc",
+  "colour": 30,
+  "tooltip": "the stopped process",
+  "helpUrl": ""
+},
+{
+  "type": "proc_deref",
+  "message0": "* %1",
+  "args0": [
+    {
+      "type": "input_value",
+      "name": "P",
+      "check": "name"
+    }
+  ],
+  "output": "proc",
+  "colour": 90,
+  "tooltip": "dereference name to process",
+  "helpUrl": ""
+},
+{
+  "type": "name_var",
+  "message0": "%1",
+  "args0": [
+    {
+      "type": "field_variable",
+      "name": "X",
+      "variable": "x"
+    }
+  ],
+  "output": "name",
+  "colour": 230,
+  "tooltip": "",
+  "helpUrl": ""
+}]
