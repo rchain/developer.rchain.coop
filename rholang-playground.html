@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <title>Rholang Playground - RChain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel='stylesheet' href='css/layout.css' />
+    <link rel='stylesheet' href='css/ladl.css' />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/favicon-red.png" />
+    <style>
+        pre {
+            line-height: 1
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navOpen" onclick="navOpen()">
+        <div class="burger"></div>
+        <div class="burger"></div>
+        <div class="burger"></div>
+    </div>
+    <div class="nav" id="nav">
+        <div id="navClose" onclick="navClose()">X</div>
+        <div class="item" onclick="">
+            <a href="index.html">Home</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="documentation.html">Documentation</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="https://faq.rchain.coop" target="_blank">FAQ</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="token-swap.html">REV Issuance</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="https://rchain.coop" target="_blank">RChain.Coop</a>
+        </div>
+    </div>
+
+    <div class="masthead">
+        <div id="logoWrapper">
+            <img src="assets/rchain-redwhite-logo.png" alt="RChain">
+        </div>
+    </div>
+
+    <div class="bodyText">
+        <h1>Rholang Playground</h1>
+
+        <form>
+            <fieldset>
+                <input type="hidden" name="node" value="https://observer.testnet.rchain.coop" />
+                <label>Example:
+                    <select name="example">
+                        <option>Hello World</option>
+                    </select>
+                </label>
+                <!-- prettier-ignore -->
+                <textarea id='rholang-term' cols="80" rows="16">new world in {
+  world!("Hello!")
+}
+</textarea>
+                <br />
+                <button id="run">Run</button>
+            </fieldset>
+        </form>
+        <section id="resultSection" style="display: none">
+            <h2>Result</h2>
+            <pre id="result"></pre>
+            <h2>Block Info</h2>
+            <small>
+                <pre id="blockInfo"></pre>
+            </small>
+        </section>
+        <section id="problemSection" style="display: none">
+            <h3>Problem</h3>
+            <pre id="problem"></pre>
+        </section>
+
+
+        <h2>More on Rholang</h2>
+        <ul>
+            <li>
+                <a href="https://marketplace.visualstudio.com/items?itemName=tgrospic.rholang">
+                    vs-code extension for Rholang</a>
+            </li>
+            <li>
+                <a href="https://github.com/rchain/rchain/blob/dev/rholang/reference_doc/rho_cheatsheet.pdf">
+                    Rholang cheat-sheet</a></li>
+            <li>
+                <a href="https://github.com/rchain/rchain/tree/dev/rholang/examples">rholang/examples</a>
+            </li>
+            <li>
+                <a href="https://github.com/rchain/rchain/tree/dev/rholang/reference_doc">A Rholang Reference</a>
+            </li>
+            <li>
+                <a href="https://github.com/rchain/rchain/blob/dev/rholang/src/main/bnfc/rholang_mercury.cf">
+                    Rholang Mercury BNF specification
+                </a>
+            </li>
+            <li>
+                <a href="https://drive.google.com/file/d/1FvPuiPm7ytGyklex_PEmVyJ8XgbTdIEg/view?usp=sharing">Rholang
+                    1.1</a>
+                May 2019 by L.G. Meredith
+            </li>
+            <li>
+                <a href="https://github.com/rchain/rchain/tree/dev/casper/src/main/resources">genesis contracts</a>:
+                Casper Proof of Stake, REV Vault, MakeMint, ListOps, Either
+            </li>
+            <li>
+                <a href="https://github.com/JoshOrndorff/LearnRholangByExample">Learn Rholang By Example</a> course, Nov
+                2018
+            </li>
+            <li>
+                <a
+                    href="https://www.youtube.com/watch?v=gRxXQx3cn9c&amp;list=PLf2bbiic5ZjD2QuelvOaoLF7gFiSj7u7j&amp;index=31">Getting
+                    started with Rholang smart contracts</a> 1hr talk, Jun 2018
+            </li>
+            <li>
+                <a href="https://developer.rchain.coop/assets/rholang-spec-0.2.pdf">
+                    Contracts, Composition, and Scaling:
+                    The Rholang specification</a> Feb 2018<br />
+                Draft version 0.2
+                by Meredith, Pettersson, Stephenson, Stay, Shikama, and Denman
+            </li>
+        </ul>
+
+        <script type="module">
+            import { RholangForm } from './js/rholang-playground.js';
+
+            const $ = (selector) => document.querySelector(selector);
+            window.addEventListener("DOMContentLoaded", () => {
+                RholangForm({ $, fetch });
+            });
+        </script>
+    </div>
+
+    <div id="footer">
+        <div class="footer-social">
+            <ul>
+                <li><a href="https://www.facebook.com/rchaincooperative/" target="_blank"><img
+                            src="assets/fb-circle.png"><span class="socialText">Facebook</span></a></li>
+                <li><a href="https://twitter.com/rchain_coop" target="_blank"><img
+                            src="assets/twitter-circle2.png"><span class="socialText">Twitter</span></a></li>
+                <li><a href="https://github.com/rchain" target="_blank"><img src="assets/github-circle.png"><span
+                            class="socialText">Github</span></a></li>
+                <li><a href="https://medium.com/rchain-cooperative" target="_blank"><img
+                            src="assets/medium-circle.png"><span class="socialText">Medium</span></a></li>
+                <li><a href="https://www.reddit.com/r/RChain/" target="_blank"><img
+                            src="assets/reddit-circle2.png"><span class="socialText">Reddit</span></a></li>
+                <li><a href="https://t.me/rchaincoop" target="_blank"><img src="assets/telegram2.png"><span
+                            class="socialText">Telegram</span></a></li>
+                <li><a href="https://discord.gg/NWkQnfH" target="_blank"><img src="assets/discord-circle.png"><span
+                            class="socialText">Discord</span></a></li>
+                <li><a href="https://www.youtube.com/channel/UCSS3jCffMiz574_q64Ukj_w" target="_blank"><img
+                            src="assets/youtube-circle.png"><span class="socialText">Youtube</span></a></li>
+                <li><a href="https://www.linkedin.com/company/rchain-cooperative/" target="_blank"><img
+                            src="assets/linkedin-circle.png"><span class="socialText">Linkedin</span></a></li>
+            </ul>
+        </div>
+        <div class="copy">© 2020 RChain Cooperative</div>
+    </div>
+
+    <script src="js/developer.rchain.js"></script>
+</body>
+
+</html>

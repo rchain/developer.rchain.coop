@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <title>Blockly Rho Calc - RChain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel='stylesheet' href='css/layout.css' />
+    <link rel='stylesheet' href='css/documentation.css' />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/favicon-red.png" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blockly/3.20200924.2/blockly.min.js"
+        integrity="sha512-0mL4wFg8lSxeT6Csm+Euhaln/QW5jtF+VDOgsSYuDnp8/6AQv3eFdz3b3YAQ6oc8fFGkOGmq+aU1iqR6HzzpTQ=="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="navOpen" onclick="navOpen()">
+        <div class="burger"></div>
+        <div class="burger"></div>
+        <div class="burger"></div>
+    </div>
+    <div class="nav" id="nav">
+        <div id="navClose" onclick="navClose()">X</div>
+        <div class="item" onclick="">
+            <a href="index.html">Home</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="documentation.html">Documentation</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="https://faq.rchain.coop" target="_blank">FAQ</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="token-swap.html">REV Issuance</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="https://rchain.coop" target="_blank">RChain.Coop</a>
+        </div>
+    </div>
+
+    <div class="masthead">
+        <div id="logoWrapper">
+            <img src="assets/rchain-redwhite-logo.png" alt="RChain">
+        </div>
+    </div>
+
+    <div class="bodyText">
+        <h1>Blockly Rho Calc</h1>
+
+        <p>
+            The RChain execution model is derived from the syntax and semantics of rho-calculus.
+            “Rho” stands for reflective, higher-order. For a crash course, see the
+            <cite><a href="https://github.com/rchain-community/rv2020/issues/69">Voting in Rholang</a></cite>
+            materials (Fall 2020).
+        </p>
+        <div id="blocklyDiv" style="height: 480px; width: 600px;"></div>
+        <xml id="toolbox" style="display: none">
+            <block type="proc_nil"></block>
+            <block type="proc_for"></block>
+            <block type="proc_send"></block>
+            <block type="proc_deref"></block>
+            <block type="proc_par"></block>
+            <block type="name_at"></block>
+        </xml>
+        <script type="module">
+            import { rhoCalcBlocks } from './js/rhocalc-blocks.js';
+
+            Blockly.defineBlocksWithJsonArray(rhoCalcBlocks);
+
+            const workspace = Blockly.inject('blocklyDiv',
+                { toolbox: document.getElementById('toolbox') });
+        </script>
+        <p><em>made with <a href="https://developers.google.com/blockly">Blockly</a></em></p>
+
+        <h2>Why Rho Calculus?</h2>
+        <ul>
+            <li>Epicenter #221: <a href="https://www.youtube.com/watch?v=kojlx2ykRsA&feature=youtu.be&t=963">Greg
+                    Meredith & Nash Foster: RChain – The Scalable, Concurrent and Performant Blockchain</a>, Feb 2018
+            </li>
+        </ul>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/kojlx2ykRsA" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+        </iframe>
+
+        <h2>References</h2>
+        <ul>
+            <li>
+                Eykholt, Meredith and Denman, 2017
+                <a href="https://architecture-docs.readthedocs.io/">RChain Platform Architecture</a>. <cite>RChain
+                    Cooperative</cite>
+                <br />esp.
+                <a
+                    href="https://architecture-docs.readthedocs.io/contracts/contract-design.html#the-formalism-rho-calculus">The
+                    Formalism: Rho-Calculus</a>
+                section.
+            </li>
+            <li>
+                Meredith, L.G. and Radestock, M., 2005. <a
+                    href="https://www.sciencedirect.com/science/article/pii/S1571066105051893">A reflective higher-order
+                    calculus</a>. <cite>Electronic Notes in Theoretical Computer Science</cite>, 141(5), pp.49-67.
+            </li>
+            <li>Meredith L., Radestock M: <a href="https://link.springer.com/chapter/10.1007/11580850_19">Namespace
+                    Logic - A Logic
+                    for a Reflective Higher-Order Calculus</a>. <cite>Lecture Notes in Computer Science</cite> vol 3705.
+            </li>
+        </ul>
+    </div>
+
+    <div id="footer">
+        <div class="footer-social">
+            <ul>
+                <li><a href="https://www.facebook.com/rchaincooperative/" target="_blank"><img
+                            src="assets/fb-circle.png"><span class="socialText">Facebook</span></a></li>
+                <li><a href="https://twitter.com/rchain_coop" target="_blank"><img
+                            src="assets/twitter-circle2.png"><span class="socialText">Twitter</span></a></li>
+                <li><a href="https://github.com/rchain" target="_blank"><img src="assets/github-circle.png"><span
+                            class="socialText">Github</span></a></li>
+                <li><a href="https://medium.com/rchain-cooperative" target="_blank"><img
+                            src="assets/medium-circle.png"><span class="socialText">Medium</span></a></li>
+                <li><a href="https://www.reddit.com/r/RChain/" target="_blank"><img
+                            src="assets/reddit-circle2.png"><span class="socialText">Reddit</span></a></li>
+                <li><a href="https://t.me/rchaincoop" target="_blank"><img src="assets/telegram2.png"><span
+                            class="socialText">Telegram</span></a></li>
+                <li><a href="https://discord.gg/NWkQnfH" target="_blank"><img src="assets/discord-circle.png"><span
+                            class="socialText">Discord</span></a></li>
+                <li><a href="https://www.youtube.com/channel/UCSS3jCffMiz574_q64Ukj_w" target="_blank"><img
+                            src="assets/youtube-circle.png"><span class="socialText">Youtube</span></a></li>
+                <li><a href="https://www.linkedin.com/company/rchain-cooperative/" target="_blank"><img
+                            src="assets/linkedin-circle.png"><span class="socialText">Linkedin</span></a></li>
+            </ul>
+        </div>
+        <div class="copy">© 2020 RChain Cooperative</div>
+    </div>
+
+    <script src="js/developer.rchain.js"></script>
+</body>
+
+</html>
