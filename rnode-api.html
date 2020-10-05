@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <title>RNode API Interactive Documentation - RChain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+    <link rel='stylesheet' href='css/layout.css' />
+    <link rel='stylesheet' href='css/documentation.css' />
+    <style>
+        .bodyText {
+            line-height: 1.0;
+        }
+    </style>
+    <link rel='stylesheet' href='css/ladl.css' />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/favicon-red.png" />
+    <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"
+        integrity="sha384-vYZydNRigu+FgLH0rwR9kefP68iWqeoTbniVrK9Qq9tkHL2uSH+HtHfyaOzi/rn6"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.35.0/swagger-ui.css">
+</head>
+
+<body>
+    <div id="navOpen" onclick="navOpen()">
+        <div class="burger"></div>
+        <div class="burger"></div>
+        <div class="burger"></div>
+    </div>
+    <div class="nav" id="nav">
+        <div id="navClose" onclick="navClose()">X</div>
+        <div class="item" onclick="">
+            <a href="index.html">Home</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="documentation.html">Documentation</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="https://faq.rchain.coop" target="_blank">FAQ</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="token-swap.html">REV Issuance</a>
+        </div>
+        <div class="item" onclick="">
+            <a href="https://rchain.coop" target="_blank">RChain.Coop</a>
+        </div>
+    </div>
+
+    <div class="masthead">
+        <div id="logoWrapper">
+            <img src="assets/rchain-redwhite-logo.png" alt="rchain">
+        </div>
+    </div>
+
+    <div class="bodyText">
+        <div id="rnode-api-form">
+        </div>
+        <script>
+            const ui = SwaggerUIBundle({
+                url: "https://raw.githubusercontent.com/rchain/rchain/dev/docs/rnode-api/rnode-openapi.json",
+                dom_id: '#rnode-api-form',
+                deepLinking: true,
+                presets: [
+                    SwaggerUIBundle.presets.apis,
+                    SwaggerUIBundle.SwaggerUIStandalonePreset
+                ],
+                /*@@???
+                layout: "StandaloneLayout"
+                */
+            })
+        </script>
+    </div>
+
+    <div id="footer">
+        <div class="footer-social">
+            <ul>
+                <li><a href="https://www.facebook.com/rchaincooperative/" target="_blank"><img
+                            src="assets/fb-circle.png"><span class="socialText">Facebook</span></a></li>
+                <li><a href="https://twitter.com/rchain_coop" target="_blank"><img
+                            src="assets/twitter-circle2.png"><span class="socialText">Twitter</span></a></li>
+                <li><a href="https://github.com/rchain" target="_blank"><img src="assets/github-circle.png"><span
+                            class="socialText">Github</span></a></li>
+                <li><a href="https://medium.com/rchain-cooperative" target="_blank"><img
+                            src="assets/medium-circle.png"><span class="socialText">Medium</span></a></li>
+                <li><a href="https://www.reddit.com/r/RChain/" target="_blank"><img
+                            src="assets/reddit-circle2.png"><span class="socialText">Reddit</span></a></li>
+                <li><a href="https://t.me/rchaincoop" target="_blank"><img src="assets/telegram2.png"><span
+                            class="socialText">Telegram</span></a></li>
+                <li><a href="https://discord.gg/NWkQnfH" target="_blank"><img src="assets/discord-circle.png"><span
+                            class="socialText">Discord</span></a></li>
+                <li><a href="https://www.youtube.com/channel/UCSS3jCffMiz574_q64Ukj_w" target="_blank"><img
+                            src="assets/youtube-circle.png"><span class="socialText">Youtube</span></a></li>
+                <li><a href="https://www.linkedin.com/company/rchain-cooperative/" target="_blank"><img
+                            src="assets/linkedin-circle.png"><span class="socialText">Linkedin</span></a></li>
+            </ul>
+        </div>
+        <div class="copy">© 2020 RChain Cooperative</div>
+    </div>
+
+    <script src="js/developer.rchain.js"></script>
+</body>
+
+</html>
