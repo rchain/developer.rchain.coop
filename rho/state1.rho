@@ -1,0 +1,36 @@
+// Placing and sending pizza orders
+new result, pizzaShop, ack1, ack2, ack3, ack4, ack5 in {
+    // let's order a pizza
+    pizzaShop!("order", "large pepperoni", *result) |
+    pizzaShop!("order", "small sausage", *result) |
+    pizzaShop!("order", "hawaiian", *result) |
+    pizzaShop!("order", "large sausage", *result) |
+    pizzaShop!("order", "small pepperoni", *result) |
+    // The pizza shop behaves differently
+    // depending on what we order
+    new countCh, salesCh in {
+        countCh!(0)
+        |
+        contract pizzaShop(@"order", @order, replyChannel) = {
+            for (@count <- countCh) {
+                match (count + 1) {
+                    updated => {
+                        countCh!(updated)
+                        |
+                        match (updated % 3) {
+                            0 => {
+                                // winner!
+                                replyChannel!({"drink": "coke",
+                                "pizza": order})
+                            }
+                            _ => {
+                                // winner!
+                                replyChannel!({"pizza": order})
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

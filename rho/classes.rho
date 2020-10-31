@@ -1,0 +1,59 @@
+new result, Dog, Cat in {
+    contract Dog(@breed, return) = {
+        new self, moodCh in {
+            return!(*self)
+            |
+            moodCh!("happy")
+            |
+            contract self(@"says", return) = {
+                for (@mood <- moodCh) {
+                    return!(mood ++ " " ++ breed ++ " woof")
+                    |
+                    match (mood) {
+                        "happy" => {
+                            moodCh!("sad")
+                        }
+                        "sad" => {
+                            moodCh!("happy")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    |
+    contract Cat(@breed, return) = {
+        new self in {
+            return!(*self)
+            |
+            contract self(@"says", return) = {
+                return!("meow")
+            }
+        }
+    }
+    |
+    new ch in {
+        Dog!("dalmation", *ch) |
+        for (fido <- ch) {
+            fido!("says", *result) |
+            fido!("says", *result) |
+            fido!("says", *result) |
+            fido!("says", *result)
+        }
+    }
+    |
+    new ch in {
+        Dog!("malamute", *ch) |
+        for (morten <- ch) {
+            morten!("says", *result) |
+            morten!("says", *result)
+        }
+    }
+    |
+    new ch in {
+        Cat!("siamese", *ch) |
+        for (c <- ch) {
+            c!("says", *result)
+        }
+    }
+}

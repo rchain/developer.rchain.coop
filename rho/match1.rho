@@ -1,0 +1,29 @@
+// Placing and sending pizza orders
+new result, pizzaShop in {
+    // let's order a pizza
+    pizzaShop!("large pepperoni", *result)
+    |
+    pizzaShop!("small sausage", *result)
+    |
+    pizzaShop!("hawaiian", *result)
+    |
+    pizzaShop!("sdlkjf" /* forgot result channel */)
+    |
+    // The pizza shop behaves differently
+    // depending on what we order
+    contract pizzaShop(@order, replyChannel) = {
+        match (order) {
+            "large pepperoni" => {
+                replyChannel!({"price": 10,
+                     "pizza": order})
+            }
+            "small sausage" => {
+                replyChannel!({"price": 7,
+                     "pizza": order})
+            }
+            x => {
+                replyChannel!(["not on the menu", x])
+            }
+        }
+    }
+}

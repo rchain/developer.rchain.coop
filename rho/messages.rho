@@ -1,0 +1,13 @@
+// Placing and sending pizza orders
+new result, pizzaShop in {
+    // let's order a pizza
+    pizzaShop!("large pepperoni", *result)
+    |
+    // The pizza shop will take our order...
+    for(@order, replyChannel <- pizzaShop) {
+        replyChannel!(
+            // rholang has maps, just like js, py, ..
+            {"pizza": order}
+            )
+    }
+}

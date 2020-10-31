@@ -1,0 +1,18 @@
+// Placing and sending pizza orders
+new result, pizzaShop in {
+    // let's order a pizza
+    pizzaShop!("large pepperoni", *result)
+    |
+    pizzaShop!("large cheese", *result)
+    |
+    pizzaShop!("small sausage", *result)
+    |
+    // The pizza shop will take our order...
+    contract pizzaShop(@order, replyChannel) = {
+        replyChannel!(
+            // rholang has maps, just like js, py, ..
+            {"pizza": order}
+            )
+    }
+}
+
