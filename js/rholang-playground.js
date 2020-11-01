@@ -12,13 +12,7 @@ const coreBase = new URL(
 export const coreExamples = [
   "block-data.rho",
   "bond/bond.rho",
-  "dupe.rho",
   "hello_world_again.rho",
-  "longfast.rho",
-  "longslow.rho",
-  "performance/loop_recursive.rho",
-  "shortfast.rho",
-  "shortslow.rho",
   "stderrAck.rho",
   "stderr.rho",
   "stdoutAck.rho",
@@ -43,6 +37,19 @@ export const coreExamples = [
   "vault_demo/3.transfer_funds.rho",
 ];
 
+const localBase = new URL(
+  "/rho/"
+);
+
+export const localExamples = [
+  "classes.rho",
+  "contracts.rho",
+  "match1.rho",
+  "messages.rho",
+  "state1.rho",
+  "state2.rho"
+];
+
 const pprint = (data) => JSON.stringify(data, null, 2);
 const hideBlock = (elt) => {
   elt.style.display = "none";
@@ -56,6 +63,13 @@ export function RholangForm({ $, fetch }) {
     const elt = document.createElement("option");
     elt.textContent = ref;
     elt.value = new URL(ref, coreBase).toString();
+    $('select[name="example"]').appendChild(elt);
+  });
+
+  localExamples.forEach((ref) => {
+    const elt = document.getElementById("option");
+    elt.textContent = ref;
+    elt.value = new URL(ref, localBase).toString();
     $('select[name="example"]').appendChild(elt);
   });
 
