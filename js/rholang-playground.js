@@ -38,7 +38,7 @@ export const coreExamples = [
 ];
 
 const localBase = new URL(
-  "/rho/"
+  "https://developer.rchain.coop/rho/"
 );
 
 export const localExamples = [
