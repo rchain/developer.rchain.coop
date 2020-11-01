@@ -67,7 +67,7 @@ export function RholangForm({ $, fetch }) {
   });
 
   localExamples.forEach((ref) => {
-    const elt = document.getElementById("option");
+    const elt = document.createElement("option");
     elt.textContent = ref;
     elt.value = new URL(ref, localBase).toString();
     $('select[name="example"]').appendChild(elt);
